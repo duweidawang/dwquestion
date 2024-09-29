@@ -1,0 +1,35 @@
+server:
+  port: 8031
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dwquestion
+    username: root
+    password: 123456
+  redis:
+    database: 1
+    host: localhost
+    port: 6379
+    timeout: 5000
+hotkey:
+  app-name: dwquestion
+  caffeine-size: 10000
+  push-period: 1000
+  etcd-server: http://localhost:2379
+
+project:
+  basedir: D:\个人项目\wei-questionanswer\dwquestion1
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+
+nacos:
+  config:
+    server-addr: localhost:8848
+    bootstrap:
+      enable: true
+    data-id: dwquestion
+    group: DEFAULT_GROUP
+    type: yaml
+    auto-refresh: true
