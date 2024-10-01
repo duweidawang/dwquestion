@@ -7,6 +7,67 @@ spring:
     url: jdbc:mysql://localhost:3306/dwquestion
     username: root
     password: 123456
+ 
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 20
+      minIdle: 20
+      max-active: 200
+      max-wait: 2000
+      time-between-eviction-runs-millis: 2000
+      min-evictable-idle-time-millis: 600000
+      max-evictable-idle-time-millis: 900000
+      validationQuery: select 1
+      testWhileIdle: true
+      testOnBorrow: false
+ 
+      testOnReturn: false
+ 
+      poolPreparedStatements: true
+ 
+ 
+ 
+      maxOpenPreparedStatements: 20
+ 
+      keepAlive: true
+ 
+      aop-patterns: "com.springboot.template.dao.*"
+ 
+      filters: stat,wall,log4j2
+ 
+      filter:
+ 
+        stat:
+          enabled: true
+          db-type: mysql
+ 
+          log-slow-sql: true
+          slow-sql-millis: 2000
+ 
+        slf4j:
+          enabled: true
+          statement-log-error-enabled: true
+          statement-create-after-log-enabled: false
+          statement-close-after-log-enabled: false
+          result-set-open-after-log-enabled: false
+          result-set-close-after-log-enabled: false
+ 
+      web-stat-filter:
+        enabled: true                    
+        url-pattern: /*  
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"  
+        session-stat-enable: true        
+        session-stat-max-count: 1000  
+ 
+      stat-view-servlet:
+        enabled: true                    
+        url-pattern: /druid/*  
+        reset-enable: false               
+        login-username: root  
+        login-password: 123
+        allow: 127.0.0.1  
+        deny:  
+
   redis:
     database: 1
     host: localhost
@@ -19,7 +80,7 @@ hotkey:
   etcd-server: http://localhost:2379
 
 project:
-  basedir: D:\¸öÈËÏîÄ¿\wei-questionanswer\dwquestion1
+  basedir: D:\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿\wei-questionanswer\dwquestion1
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
@@ -33,3 +94,4 @@ nacos:
     group: DEFAULT_GROUP
     type: yaml
     auto-refresh: true
+

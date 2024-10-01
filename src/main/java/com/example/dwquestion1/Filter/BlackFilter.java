@@ -19,7 +19,6 @@ public class BlackFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
             //获取ip地址
         String ipAddress = NetUtils.getIpAddress((HttpServletRequest) servletRequest);
-        log.info("ip地址：{}",ipAddress);
         //判断是否在黑名单
         if(BlackIpUtil.isBlackIp(ipAddress)){
             //如果在返回提示信息
